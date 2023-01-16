@@ -1,14 +1,5 @@
-#' Title
-#'
-#' @param trios_long
-#' @param sensor_air 
-#' @param sensor_up 
-#' @param sensor_down 
-#'
-#' @return
 #' @export
-#'
-#' @examples
+
 trios_sync_sensors <- function(trios_long,
                                depths,
                                sensor_air = "8175",

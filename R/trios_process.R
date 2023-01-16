@@ -1,12 +1,5 @@
-#' Title
-#'
-#' @param path 
-#' @param depths 
-#'
-#' @return
 #' @export
-#'
-#' @examples
+
 trios_process <- function(path, depths){
   
   f <- dir(path)

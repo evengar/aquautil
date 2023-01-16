@@ -1,16 +1,5 @@
-#' Title
-#'
-#' @param path 
-#' @param depths 
-#' @param sensor_air 
-#' @param sensor_up 
-#' @param sensor_down 
-#' @param sensor_down_alt 
-#'
-#' @return
 #' @export
-#'
-#' @examples
+
 read_trios <- function(path, 
                        depths,
                        sensor_air = "8175",
