@@ -9,7 +9,8 @@
 #' @export
 #'
 #' @examples
-trios_sync_sensors <- function(trios_long, 
+trios_sync_sensors <- function(trios_long,
+                               depths,
                                sensor_air = "8175",
                                sensor_up = "8078",
                                sensor_down = "501A",
@@ -41,12 +42,12 @@ trios_sync_sensors <- function(trios_long,
   # Interpolate all spectra to the same wavelengths
   
   w <- w.air
-  for (i in (1:10)) {
+  for (i in (1:length(depths))) {
     p.up[, i] <- approx(w.up, p.up[, i], w)$y
     p.down[, i] <- approx(w.down, p.down[, i], w)$y
   }
   rownames(p.up) <- w
   rownames(p.down) <- w
   
-  return(list(p.air, p.up, p.down))
+  return(list(air = p.air, up = p.up, down = p.down))
 }
