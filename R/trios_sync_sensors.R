@@ -1,3 +1,8 @@
+#' Sync the wavelengths of Trios sensors and make into Trios object
+#'
+#' @inheritParams read_trios
+#' 
+#' @inherit read_trios return
 #' @export
 
 trios_sync_sensors <- function(trios_long,
@@ -40,5 +45,9 @@ trios_sync_sensors <- function(trios_long,
   rownames(p.up) <- w
   rownames(p.down) <- w
   
-  return(list(air = p.air, up = p.up, down = p.down))
+  
+  
+  trios <- list(air = p.air, up = p.up, down = p.down, w = w, depths = depths)
+  class(trios) <- "trios"
+  return(trios)
 }
