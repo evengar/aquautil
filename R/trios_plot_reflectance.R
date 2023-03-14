@@ -4,7 +4,7 @@ trios_get_reflectance <- function(trios){
   
   p.refl <- trios[["up"]] / trios[["down"]] # calculate spectral reflectance
   
-  return(p.refl.par)
+  return(p.refl)
 }
 
 
