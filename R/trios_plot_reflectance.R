@@ -1,9 +1,10 @@
 #' @export
-trios_get_reflectance <- function(trios){
+trios_get_reflectance <- function(trios, par_region=TRUE){
+  if (par_region){
+    subset_to_wavelength(trios, 400, 700)
+  }
   
-  w <- as.numeric(rownames(trios[[1]]))
   p.refl <- trios[["up"]] / trios[["down"]] # calculate spectral reflectance
-  p.refl.par <- p.refl[(w > 400) & (w < 700),] # subset to the PAR region
   
   return(p.refl.par)
 }
