@@ -47,7 +47,7 @@ trios_sync_sensors <- function(trios_long,
   
   
   
-  trios <- list(air = p.air, up = p.up, down = p.down, w = w, depths = depths)
+  trios <- list(air = p.air, up = p.up, down = p.down, w = w, depth = depths)
   
   structure(trios, class = c("trios", "list"))
 }
