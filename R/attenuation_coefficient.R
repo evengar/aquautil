@@ -2,7 +2,7 @@
 attenuation_coefficient <- function(trios){
   
   if (length(trios) == 2){
-    return(trios$up[,2] - trios$up[,1])
+    return(log(trios$up[,2]) - log(trios$up[,1]))
   }
   
   df <- trios_to_df(trios)
