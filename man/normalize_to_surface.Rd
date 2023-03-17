@@ -4,7 +4,7 @@
 \alias{normalize_to_surface}
 \title{Normalize down- and upwelling irradiance to surface irradiance}
 \usage{
-normalize_to_surface(trios)
+normalize_to_surface(trios, relative_to_surface = TRUE)
 }
 \arguments{
 \item{trios}{A trios object}
