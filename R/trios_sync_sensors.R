@@ -42,9 +42,8 @@ trios_sync_sensors <- function(trios_long,
     p.up[, i] <- approx(w.up, p.up[, i], w)$y
     p.down[, i] <- approx(w.down, p.down[, i], w)$y
   }
-  rownames(p.up) <- w
-  rownames(p.down) <- w
-  
+
+  dimnames(p.air) <- dimnames(p.up) <- dimnames(p.down) <- NULL  
   
   
   trios <- list(air = p.air, up = p.up, down = p.down, w = w, depth = depths)
