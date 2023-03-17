@@ -1,7 +1,8 @@
 #' @export
-plot_depth_attenuation <- function(trios){
-  # trios_df <- subset(as.data.frame(trios), sensor == "up")
-  trios <- normalize_to_surface(subset_to_wavelength(trios))
+plot_depth_attenuation <- function(trios, relative_to_surface = TRUE){
+  
+  trios <- normalize_to_surface(subset_to_wavelength(trios), 
+                                relative_to_surface = relative_to_surface)
   matplot(trios$depth, 
           t(trios$up), 
           type = "l", 
