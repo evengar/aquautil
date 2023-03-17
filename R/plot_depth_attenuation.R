@@ -9,7 +9,8 @@ plot_depth_attenuation <- function(trios, relative_to_surface = TRUE){
           log="y", 
           lty=1, 
           col=trios_palette(length(trios$w)),
-          xlab="Depth(m)", 
+          main = "Attenuation by depth",
+          xlab="Depth (m)", 
           ylab="Power (µW / m2 / nm)")
   
 }
