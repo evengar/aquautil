@@ -6,7 +6,7 @@ attenuation_coefficient <- function(trios){
     range <- diff(trios$depth)
     difference <- log(trios$up[,1]) - log(trios$up[,2])
     # convert slope to per meter
-    return(difference / range)
+    return(data.frame(w = trios$w, attenuation = difference / range))
   }
     
   df <- as.data.frame(trios)
@@ -22,5 +22,7 @@ attenuation_coefficient <- function(trios){
   # Negative slope is attenuation coefficient as function of wavelength
   
   wl <- as.numeric(rownames(lme4::ranef(m)$fw))
-  -(lme4::fixef(m)[2] + lme4::ranef(m)$fw[, 2])
+  attenuation <- -(lme4::fixef(m)[2] + lme4::ranef(m)$fw[, 2])
+  
+  data.frame(w = wl, attenuation = attenuation)
 }
