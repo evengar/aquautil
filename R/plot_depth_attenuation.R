@@ -1,5 +1,5 @@
 #' @export
-plot_depth_attenuation <- function(trios, relative_to_surface = TRUE){
+plot_depth_attenuation <- function(trios, relative_to_surface = TRUE, ...){
   
   trios <- normalize_to_surface(subset_to_wavelength(trios), 
                                 relative_to_surface = relative_to_surface)
@@ -11,6 +11,7 @@ plot_depth_attenuation <- function(trios, relative_to_surface = TRUE){
           col=trios_palette(length(trios$w)),
           main = "Attenuation by depth",
           xlab="Depth (m)", 
-          ylab="Power (µW / m2 / nm)")
+          ylab="Power (µW / m2 / nm)",
+          ...)
   
 }
