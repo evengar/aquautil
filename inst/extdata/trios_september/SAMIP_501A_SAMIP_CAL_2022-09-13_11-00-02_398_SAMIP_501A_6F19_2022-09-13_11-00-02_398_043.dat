@@ -1,0 +1,31 @@
+[SAMIP]
+Version            = 1
+IDData             = 6F19_2022-09-13_11-00-02_398_043
+IDDevice           = SAMIP_501A
+IDDataType         = SAMIP
+IDDataTypeSub1     = CALIBRATED
+IDDataTypeSub2     = 
+IDDataTypeSub3     = 
+DateTime           = 2022-09-13 11:00:02
+PositionLatitude   = 0
+PositionLongitude  = 0
+Comment            = 
+CommentSub1        = 
+CommentSub2        = 
+CommentSub3        = 
+IDMethodType       = SAMIP Control
+MethodName         = SAMIP_501A
+Mission            = No Mission
+MissionSub         = 1
+RecordType         = 0
+[Attributes]
+IDDataIncl = 6F19_2022-09-13_11-00-02_398_038
+IDDataPress = 6F19_2022-09-13_11-00-02_398_039
+IDDataSAM = 6F19_2022-09-13_11-00-02_398_042
+p999 = 632
+[END] of [Attributes]
+[DATA]
+
+[END] of [DATA]
+[END] of [SAMIP]
+
