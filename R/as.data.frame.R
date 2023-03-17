@@ -5,7 +5,7 @@
 #' @return A data frame in long form with columns for depth, wavelength, sensor type and irradiance value
 #' @export
 #'
-trios_to_df <- function(trios){
+as.data.frame.trios <- function(trios){
   
   with(trios, data.frame(depth=rep(depth, each=length(w)), 
                          w=rep(w, length(depth)),

@@ -9,7 +9,7 @@ attenuation_coefficient <- function(trios){
     return(difference / range)
   }
     
-  df <- trios_to_df(trios)
+  df <- as.data.frame(trios)
   
   df <- subset(df, sensor == "up")
   
