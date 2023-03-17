@@ -12,7 +12,7 @@ attenuation_coefficient <- function(trios){
   df <- as.data.frame(trios)
   
   # omit 0 values because we use log later
-  df <- na.omit(subset(df, sensor == "up" & irradiance > 0))
+  df <- na.omit(subset(df, sensor == "down" & irradiance > 0))
 
   
   df$fw <- factor(df$w) # Need to have wavelength as factor
