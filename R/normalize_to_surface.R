@@ -12,8 +12,8 @@ normalize_to_surface <- function(trios, relative_to_surface = TRUE){
   trios$down <- trios$down / trios$air
   
   if (relative_to_surface){
-    trios$up <- trios$up / mean(trios$up[,1], na.rm = TRUE)
-    trios$down <- trios$down / mean(trios$down[,1], na.rm = TRUE)
+    trios$up <- trios$up / trios$up[,1]
+    trios$down <- trios$down / trios$down[,1]
   }
   
   return(trios)
