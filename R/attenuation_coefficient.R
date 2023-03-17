@@ -21,4 +21,6 @@ attenuation_coefficient <- function(trios){
   # Slope for each wavelength = fixed effect + random effect
   # Negative slope is attenuation coefficient as function of wavelength
   
+  wl <- as.numeric(rownames(lme4::ranef(m)$fw))
+  -(lme4::fixef(m)[2] + lme4::ranef(m)$fw[, 2])
 }
