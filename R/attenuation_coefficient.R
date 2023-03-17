@@ -1,10 +1,14 @@
 #' @export
 attenuation_coefficient <- function(trios){
   
+  # special case when only 2 depths are recorded
   if (length(trios) == 2){
-    return(log(trios$up[,2]) - log(trios$up[,1]))
+    range <- diff(trios$depth)
+    difference <- log(trios$up[,1]) - log(trios$up[,2])
+    # convert slope to per meter
+    return(difference / range)
   }
-  
+    
   df <- trios_to_df(trios)
   
   df <- subset(df, sensor == "up")
