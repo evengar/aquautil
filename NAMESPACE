@@ -3,6 +3,7 @@
 S3method(as.data.frame,trios)
 S3method(dim,trios)
 S3method(length,trios)
+S3method(plot,trios)
 export(attenuation_coefficient)
 export(get_reflectance)
 export(normalize_to_surface)
