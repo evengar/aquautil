@@ -11,7 +11,9 @@ attenuation_coefficient <- function(trios){
     
   df <- as.data.frame(trios)
   
-  df <- subset(df, sensor == "up")
+  # omit 0 values because we use log later
+  df <- na.omit(subset(df, sensor == "up" & irradiance > 0))
+
   
   df$fw <- factor(df$w) # Need to have wavelength as factor
   m <- lme4::lmer(log(irradiance) ~ depth + (depth | fw), data=df)
@@ -19,6 +21,4 @@ attenuation_coefficient <- function(trios){
   # Slope for each wavelength = fixed effect + random effect
   # Negative slope is attenuation coefficient as function of wavelength
   
-  wl <- as.numeric(rownames(ranef(m)$fw))
-  -(fixef(m)[2] + ranef(m)$fw[, 2])
 }
