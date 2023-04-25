@@ -35,7 +35,7 @@ trios <- read_trios(directory, depths = 0:9)
 
 For this to work, you need to provide the same number of depths that you
 have files per sensor, in the order you took the measurements.
-`read_trios()` does not perform any checks apart from the number of, so
+`read_trios()` does not perform any checks apart from the number of measurements, so
 make sure your files are in order!
 
 The resulting file is a “trios” object, and you can perform a few
