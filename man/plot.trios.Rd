@@ -4,7 +4,7 @@
 \alias{plot.trios}
 \title{Make a summary plot of a trios object}
 \usage{
-\method{plot}{trios}(trios)
+\method{plot}{trios}(trios, title = NULL)
 }
 \arguments{
 \item{trios}{A trios object}
