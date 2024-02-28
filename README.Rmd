@@ -12,6 +12,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This package contains a set of utility functions to do tasks regularly done at the AQUA section at the University of Oslo. So far, the package only contains function for reading and summarizing light measurement data.
 
+### Installation
+
+You need the `devtools` package to install `aquautil` from github. Running the following chunk installs `aquautil`, and also `devtools` if you don't already have it installed.
+
+```{r, eval=FALSE}
+if (!require(devtools)){
+  install.packages("devtools")
+}
+devtools::install_github("evengar/aquautil")
+```
+
+
 ### Light measurement data
 
 *Warning: the functions in the package are not properly tested. Use at your own risk, and verify that results seem correct.*

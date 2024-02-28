@@ -6,6 +6,19 @@ done at the AQUA section at the University of Oslo. So far, the package
 only contains function for reading and summarizing light measurement
 data.
 
+### Installation
+
+You need the `devtools` package to install `aquautil` from github.
+Running the following chunk installs `aquautil`, and also `devtools` if
+you don’t already have it installed.
+
+``` r
+if (!require(devtools)){
+  install.packages("devtools")
+}
+devtools::install_github("evengar/aquautil")
+```
+
 ### Light measurement data
 
 *Warning: the functions in the package are not properly tested. Use at
@@ -35,7 +48,7 @@ trios <- read_trios(directory, depths = 0:9)
 
 For this to work, you need to provide the same number of depths that you
 have files per sensor, in the order you took the measurements.
-`read_trios()` does not perform any checks apart from the number of measurements, so
+`read_trios()` does not perform any checks apart from the number of, so
 make sure your files are in order!
 
 The resulting file is a “trios” object, and you can perform a few
@@ -95,7 +108,7 @@ trios_par
 plot(trios_par)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 There are also functions for making the individual plots, like
 `plot_attenuation_coefficient()`, and functions for doing the
@@ -115,4 +128,4 @@ ggplot(trios_df, aes(w, irradiance, color = factor(depth))) +
   facet_wrap(~sensor)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
