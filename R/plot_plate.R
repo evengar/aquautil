@@ -14,7 +14,7 @@
 plot_plate <- function(plate, fill_var = conc_ng_ul, round_dec = 2){
   fill_var = enquo(fill_var)
   
-  baseplot <- ggplot(pool, aes(as.factor(as.numeric(column)), fct_rev(row)))  +
+  baseplot <- ggplot(plate, aes(as.factor(as.numeric(column)), fct_rev(row)))  +
     geom_tile(aes(fill = !!fill_var)) +
     geom_text(aes(label = round(!!fill_var, round_dec)), col = "red") +
     scale_fill_viridis_c()
