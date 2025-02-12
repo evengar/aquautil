@@ -72,6 +72,13 @@ trios_par <- subset_to_wavelength(trios_normalized, 400, 700)
 trios_par
 ```
 
+Subset to certain depths with `subset_depth()`
+
+```{r}
+trios_shallow <- subset_depth(trios_normalized, c(0, 1, 2))
+```
+
+
 `plot()` creates a summary plot of the data
 
 ```{r}
