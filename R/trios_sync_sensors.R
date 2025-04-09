@@ -6,17 +6,19 @@
 #' @export
 
 trios_sync_sensors <- function(trios_long,
-                               depths,
                                sensor_air = "8175",
                                sensor_up = "8078",
                                sensor_down = "501A",
                                sensor_down_alt = "817c"
                                  ){
-  
+
   d.air  <- subset(trios_long, sensor == sensor_air)
   d.up   <- subset(trios_long, sensor == sensor_up)
   d.down <- subset(trios_long, sensor == sensor_down | sensor == sensor_down_alt)
   
+  depths <- unique(d.air$depth)
+  pressures <- unique(d.air$pressure2)
+  #browser()
   # Make separate wavelength by depth matrices for the 3 sensors 
   # (air reference, water downwelling, and water upwelling)
   
@@ -46,7 +48,7 @@ trios_sync_sensors <- function(trios_long,
   dimnames(p.air) <- dimnames(p.up) <- dimnames(p.down) <- NULL  
   
   
-  trios <- list(air = p.air, up = p.up, down = p.down, w = w, depth = depths)
+  trios <- list(air = p.air, up = p.up, down = p.down, w = w, depth = depths, p = pressures)
   
   structure(trios, class = c("trios", "list"))
 }

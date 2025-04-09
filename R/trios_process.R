@@ -27,11 +27,21 @@ trios_process <- function(path, depths){
     
     # Read all lines as strings (no tabs in file)
     di <- read.table(fi, sep = "\t", as.is = TRUE)$V1
+    # Get pressure from file
+    p <- NA
+    pressure_pos <- grep("Pressure", di)
+    if (length(pressure_pos) > 0){
+      p <- strsplit(di[pressure_pos], " = ")[[1]][2]
+      #browser()
+    }
+    
     
     # Use occurrences of "DATA" to find
     # beginning and end of data part of the file
     k <- grep("DATA", di)
     di <- di[(k[1]+2):(k[2]-1)]
+    
+    #browser()
     
     # Split data strings and extract wavelength and power
     mi <- matrix(unlist(strsplit(di, " ")), nrow = 5)
@@ -39,8 +49,28 @@ trios_process <- function(path, depths){
     Pi <- as.numeric(mi[3,])
     
     # Add to aggregated data table
-    trios <- rbind(trios,
-                   data.frame(sensor = ff$sensor[i], depth = ff$depth[i], wavelength = wi, power = Pi))
+    trios <- rbind(
+      trios,
+      data.frame(
+        sensor = ff$sensor[i], 
+        depth = ff$depth[i], 
+        wavelength = wi,
+        power = Pi,
+        pressure = p)
+                   )
   }
-  return(trios)
+  
+  stopifnot("Increasing depth does not correspond to increasing pressure. Are the depths given in the wrong order?" = 
+    all(order(na.omit(unique(trios$depth))) == order(na.omit(unique(trios$pressure)))))
+  
+  pressures <- as.numeric(na.omit(unique(trios$pressure)))
+  pressures_inorder <- pressures[order(pressures)]
+  
+  depths_inorder <- depths[order(depths)]
+  depth_pressure <- data.frame(depth = depths_inorder, pressure2 = pressures_inorder)
+  #browser()
+  
+  trios_merged <- merge(trios, depth_pressure)
+  
+  return(trios_merged)
 }
